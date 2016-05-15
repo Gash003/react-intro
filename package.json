@@ -1,0 +1,20 @@
+{
+  "name": "react-intro",
+  "version": "1.0.0",
+  "description": "Basic React app",
+  "main": "js/app.js",
+  "scripts": {
+    "build": "babel js -d lib --presets react"
+  },
+  "keywords": [
+    "React",
+    "JSX",
+    "Flux"
+  ],
+  "author": "M Pawluk",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.8.0",
+    "babel-preset-react": "^6.5.0"
+  }
+}
