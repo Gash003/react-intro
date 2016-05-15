@@ -2,9 +2,15 @@
   "name": "react-intro",
   "version": "1.0.0",
   "description": "Basic React app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gash003/react-intro.git"
+  },
   "main": "js/app.js",
   "scripts": {
-    "build": "babel js -d lib --presets react"
+    "build": "babel js -d lib --presets react",
+    "serve": "http-server -o -c-1",
+    "start": "npm run build && npm run serve"
   },
   "keywords": [
     "React",
@@ -15,6 +21,12 @@
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.8.0",
-    "babel-preset-react": "^6.5.0"
+    "babel-preset-react": "^6.5.0",
+    "http-server": "^0.9.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2"
   }
 }
