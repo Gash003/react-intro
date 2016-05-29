@@ -25,7 +25,7 @@ var Forum = React.createClass({
         //state --> Internal property of React object, that holds its state
         return (
             <div>
-                <ForumHeader></ForumHeader>
+                <ForumHeader />
 
                 <div className="container">
                     <ForumQuestion />
@@ -33,9 +33,16 @@ var Forum = React.createClass({
                     <ForumAnswers allAnswers={this.state.allAnswers} />
                     <hr/>
                     <h4>Add an Answer</h4>
-                    <ForumAddAnswerBox/>
+                    <ForumAddAnswerBox onAddAnswer={ this._onAddAnswer } />
                 </div>
             </div>
         );
+    },
+
+    _onAddAnswer: function(answerText) {
+        ForumDispatcher.dispatch({
+            actionType: 'FORUM_ANSWER_ADDED',
+            newAnswer: answerText
+        });
     }
 });
