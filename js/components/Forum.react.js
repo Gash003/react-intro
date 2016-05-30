@@ -3,21 +3,16 @@ var Forum = React.createClass({
     getInitialState: function () {
 
         return {
-            allAnswers: {
-                "1": {
-                    body: "Isn't it about time travel?",
-                    correct: false
-                },
-                "2": {
-                    body: "Tools used to build front-end applications",
-                    correct: false
-                },
-                "3": {
-                    body: "Synonim for 'respond'",
-                    correct: false
-                }
-            }
+            allAnswers: ForumStore.getAnswers()
         };
+    },
+
+    componentDidMount: function() {
+        ForumStore.addChangeListener(this._onChange);
+    },
+
+    _onChange: function() {
+        this.setState({ allAnswers: ForumStore.getAnswers() });
     },
 
     render: function () {
