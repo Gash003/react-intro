@@ -11,6 +11,10 @@ var Forum = React.createClass({
         ForumStore.addChangeListener(this._onChange);
     },
 
+    coponentWillUnmount: function() {
+        ForumStore.removeListener(this._onChange);
+    },
+
     _onChange: function() {
         this.setState({ allAnswers: ForumStore.getAnswers() });
     },
@@ -33,11 +37,6 @@ var Forum = React.createClass({
             </div>
         );
     },
+    _onAddAnswer: ForumActions.addNewAnswer
 
-    _onAddAnswer: function(answerText) {
-        ForumDispatcher.dispatch({
-            actionType: 'FORUM_ANSWER_ADDED',
-            newAnswer: answerText
-        });
-    }
 });

@@ -25,8 +25,8 @@ ForumStore.getAnswers = function() {
     return answerData;
 };
 
-ForumStore.addChangeListener = function(istener) {
-    this.on('change', istener);
+ForumStore.addChangeListener = function(listener) {
+    this.on('change', listener);
 };
 
 ForumStore.addAnswer = function(newAnswer) {
@@ -49,12 +49,12 @@ ForumStore.markAsCorrect = function(id) {
 
 ForumDispatcher.register(function(action) {
     switch(action.actionType) {
-        case 'FORUM_ANSWER_ADDED': {
+        case ForumConstants.FORUM_ANSWER_ADDED: {
             console.log('Answer added!');
             ForumStore.addAnswer(action.newAnswer);
             break;
         }
-        case 'FORUM_ANSWER_MARKED_CORRECT': {
+        case ForumConstants.FORUM_ANSWER_MARKED_CORRECT: {
             console.log('Answer Marked correct!');
             ForumStore.markAsCorrect(action.id);
             break;
